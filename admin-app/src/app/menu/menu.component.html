@@ -1,0 +1,26 @@
+<ul nz-menu [nzTheme]="'dark'" [nzMode]="isCollapsed?'vertical':'inline'">
+    <div *ngFor="let menu of menuList">
+        <li *ngIf="menu.subList==null" nz-menu-item>
+            <i class="anticon anticon-appstore"></i>
+            <span title>{{menu.name}}</span>
+        </li>
+        <li *ngIf="menu.subList!=null" nz-submenu>
+            <span title>{{ menu.name}}</span>
+            <ul>
+                <div *ngFor="let sub of menu.subList">
+                    <li *ngIf="sub.subList==null" nz-menu-item>
+                        <span title>{{sub.name}}</span>
+                    </li>
+                    <li *ngIf="sub.subList!=null" nz-submenu>
+                        <span title>{{ sub.name}}</span>
+                        <ul>
+                            <li nz-menu-item *ngFor="let ssub of sub.subList">
+                                <span title>{{ssub.name}}</span>
+                            </li>
+                        </ul>
+                    </li>
+                </div>
+            </ul>
+        </li>
+    </div>
+</ul>

@@ -23,6 +23,10 @@
     <version.log4j2>2.7</version.log4j2>
     <version.swagger>2.7.0</version.swagger>
     <version.io.swagger>1.5.16</version.io.swagger>
+    <version.druid>1.1.5</version.druid>
+    <version.mysql>5.1.38</version.mysql>
+    <mybatis.version>1.1.1</mybatis.version>
+    <springfox-version>2.7.0</springfox-version>
   </properties>
 
   <dependencies>
@@ -36,10 +40,46 @@
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
-
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-thymeleaf</artifactId>
+    </dependency>
+    <!--SpringFox dependencies -->
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger2</artifactId>
+      <version>${springfox-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger-ui</artifactId>
+      <version>${springfox-version}</version>
+    </dependency>
+    <!-- mybatis 依赖-->
+    <dependency>
+      <groupId>org.mybatis.spring.boot</groupId>
+      <artifactId>mybatis-spring-boot-starter</artifactId>
+      <version>${mybatis.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>${version.mysql}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>${version.druid}</version>
     </dependency>
 
     <dependency>
@@ -117,6 +157,31 @@
           <skipTests>true</skipTests>
         </configuration>
       </plugin>
+
+      <!--copy static-->
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.0.1</version>
+        <executions>
+          <execution>
+            <id>copy-resources</id>
+            <phase>validate</phase>
+            <goals><goal>copy-resources</goal></goals>
+            <configuration>
+              <outputDirectory>${project.basedir}/src/main/resources/public</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>${project.basedir}/admin-ui/dist</directory>
+                  <excludes>
+                    <exclude>*.gz</exclude>
+                  </excludes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
     </plugins>
     <resources>
       <resource>

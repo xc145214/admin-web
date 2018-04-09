@@ -1,0 +1,78 @@
+[
+  {
+    "name": "系统管理",
+    "subList": [
+      {
+        "name": "用户管理",
+        "url": "userList"
+      },
+      {
+        "name": "角色列表",
+        "url": "roleList"
+      },
+      {
+        "name": "权限管理",
+        "url": "roleList"
+      },
+      {
+        "name": "资源管理",
+        "url": "resourceList"
+      }
+    ]
+  },
+  {
+    "name": "资金管理",
+    "subList": [
+      {
+        "name": "充值管理",
+        "subList": [
+          {
+            "name": "充值申请",
+            "url": "roleList"
+          },
+          {
+            "name": "充值审核",
+            "url": "roleList"
+          },
+          {
+            "name": "线下充值列表",
+            "url": "resourceList"
+          },
+          {
+            "name": "在线充值查询",
+            "url": "resourceList"
+          }
+        ]
+      },
+      {
+        "name": "红币管理",
+        "subList": [
+          {
+            "name": "用户红币信息",
+            "url": "roleList"
+          },
+          {
+            "name": "红币操作记录",
+            "url": "roleList"
+          },
+          {
+            "name": "红笔充值申请",
+            "url": "resourceList"
+          },
+          {
+            "name": "红笔充值审核",
+            "url": "resourceList"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "登录",
+    "url": "logout"
+  },
+  {
+    "name": "退出",
+    "url": "logout"
+  }
+]
